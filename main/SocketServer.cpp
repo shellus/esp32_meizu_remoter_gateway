@@ -90,7 +90,7 @@ void SocketServer::task_Listen(void * param){
 #else
         struct sockaddr_in cliaddr;
 #endif
-        uint addrLen = sizeof(cliaddr);
+        socklen_t addrLen = sizeof(cliaddr);
         int sock = accept(pServer->m_socket, (struct  sockaddr *)&cliaddr, &addrLen);
         if(sock < 0){
             ESP_LOGE(LOG_TAG, "Faild to accept connection, errno: %d", errno);
